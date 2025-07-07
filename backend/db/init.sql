@@ -1,0 +1,2 @@
+-- Initialize Database Schema for Octa Project
+-- This script sets up the basic database structure 

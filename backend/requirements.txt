@@ -1,0 +1,22 @@
+# FastAPI and web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.7.4
+pydantic-settings==2.1.0
+
+# Database dependencies
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.23
+geoalchemy2==0.14.3
+
+# Spatial data handling
+shapely==2.1.1
+numpy>=2.0.0
+
+# Neo4j and Redis
+neo4j==5.15.0
+redis==5.0.1
+
+# Celery for background tasks
+celery==5.3.4
+

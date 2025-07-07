@@ -1,24 +1,24 @@
-version: '3.8'
 services: 
   postgres:
-    image: postgis/postgis:16-3.4
+    image: postgres:16
     environment:
-      POSTGRES_DB: octa_db
-      POSTGRES_USER: octauser
-      POSTGRES_PASSWORD: octapass
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U octauser -d octa_db"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
       interval: 30s
       timeout: 10s
       retries: 3
 
   neo4j:
-    image: neo4j:5.25.0
+    image: neo4j:5.15.0
     environment:
       NEO4J_AUTH: neo4j/networkpass
       NEO4J_apoc_export_file_enabled: "true"
